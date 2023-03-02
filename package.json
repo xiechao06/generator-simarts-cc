@@ -13,8 +13,11 @@
   ],
   "main": "generators/index.js",
   "keywords": [
-    "",
-    "yeoman-generator"
+    "cpp",
+    "yeoman-generator",
+    "cmake",
+    "vcpkg",
+    "vscode"
   ],
   "devDependencies": {
     "eslint": "^6.6.0",

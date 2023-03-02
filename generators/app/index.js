@@ -58,7 +58,13 @@ module.exports = class extends Generator {
         }
       } else {
         if (!shell.env("VCPKG_ROOT")) {
-          this.env.error("Need to install vcpkg globally!");
+          this.env.error(
+            [
+              "Your project is not self-bootstrapped by `vcpkg`",
+              "but environment variable `VCPKG_ROOT` can't be found",
+              "please install vcpkg globally and set `VCPKG_ROOT`!"
+            ].join(", ")
+          );
         }
       }
     });
