@@ -11,5 +11,8 @@
         "**/.settings": true,
         "**/.factorypath": true,
   <% if (selfBootstrapped) { %>"vcpkg": true<% } %>
+    },
+    "files.associations": {
+      "h": "cpp"
     }
 }

@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.25.0)
-project(<%= projectName %> VERSION <%= version %>)
+project(<%= projectName %> VERSION <%= version %> LANGUAGES CXX)
 
 add_executable(<%= projectName %> main.cc)
 
