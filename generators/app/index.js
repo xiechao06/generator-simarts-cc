@@ -72,15 +72,17 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    for (const filePath of [
-      "main.cc",
-      ".gitignore",
-      ".editorconfig",
-      "tests/test.cc",
-      "tests/CMakeLists.txt",
-      "CMakeLists.txt"
+    for (const [filePath, destinationPath] of [
+      ["main.cc"],
+      [".gitignore"],
+      [".editorconfig"],
+      ["tests/test_project_name.cc", `tests/test_${this.props.projectName}.cc`],
+      ["CMakeLists.txt"]
     ]) {
-      this.fs.copy(this.templatePath(filePath), this.destinationPath(filePath));
+      this.fs.copy(
+        this.templatePath(filePath),
+        this.destinationPath(destinationPath || filePath)
+      );
     }
     for (const [filePath, args] of [
       [
@@ -101,6 +103,12 @@ module.exports = class extends Generator {
         ".vscode/c_cpp_properties.json",
         {
           selfBootstrapped: this.props.selfBootstrapped
+        }
+      ],
+      [
+        "tests/CMakeLists.txt",
+        {
+          projectName: this.props.projectName
         }
       ]
     ]) {

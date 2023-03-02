@@ -5,7 +5,8 @@ add_library(test_common_libs INTERFACE)
 # add other dependencies of your tests
 target_link_libraries(test_common_libs INTERFACE doctest::doctest)
 
-list(APPEND tests test)
+
+list(APPEND tests test_<%= projectName %>)
 
 
 foreach(test IN LISTS tests)
