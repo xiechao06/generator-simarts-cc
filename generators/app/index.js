@@ -57,7 +57,8 @@ module.exports = class extends Generator {
           this.env.error("Need `git` to self bootstrap, please install git!");
         }
       } else {
-        if (!shell.env("VCPKG_ROOT")) {
+        console.log(process.env["VCPKG_ROOT"]);
+        if (!process.env["VCPKG_ROOT"]) {
           this.env.error(
             [
               "Your project is not self-bootstrapped by `vcpkg`",
@@ -127,9 +128,14 @@ module.exports = class extends Generator {
         "https://github.com/Microsoft/vcpkg.git"
       ]);
       this.spawnCommandSync("./vcpkg/bootstrap-vcpkg.sh");
-      this.spawnCommandSync("./vcpkg/vcpkg install doctest");
+      this.log.info("Install doctest");
+      this.spawnCommandSync("./vcpkg/vcpkg", ["install", "doctest"]);
     } else {
-      this.spawnCommandSync(`${VCPKG_ROOT}/vcpkg install doctest}`);
+      this.log.info("Install doctest");
+      this.spawnCommandSync(`${process.env["VCPKG_ROOT"]}/vcpkg`, [
+        "install",
+        "doctest"
+      ]);
     }
   }
 };

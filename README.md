@@ -1,6 +1,6 @@
 # generator-simarts-cc [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
 >
-> A c++ project template from SIMARTS.
+> A c++ project template from SIMARTS, Based on [cmake](https://cmake.org/), [vcpkg](https://vcpkg.io) and [vscode](https://code.visualstudio.com/).
 
 ## Installation
 
