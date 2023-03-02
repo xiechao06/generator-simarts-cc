@@ -14,5 +14,6 @@
     },
     "files.associations": {
       "h": "cpp"
-    }
+    },
+    "clangd.fallbackFlags": ["-std=c++20"]
 }

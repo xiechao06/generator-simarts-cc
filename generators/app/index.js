@@ -77,7 +77,8 @@ module.exports = class extends Generator {
       [".gitignore"],
       [".editorconfig"],
       ["tests/test_project_name.cc", `tests/test_${this.props.projectName}.cc`],
-      ["CMakeLists.txt"]
+      ["CMakeLists.txt"],
+      [".clang-format"]
     ]) {
       this.fs.copy(
         this.templatePath(filePath),
